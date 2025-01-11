@@ -53,3 +53,7 @@ Dir.glob('Takeout/Keep/*.html').each.with_index(1) do |file, i|
     pages = []
   end
 end
+
+unless pages.empty?
+  File.open("importlast.json", 'w') {|file| file << { pages: pages }.to_json }
+end
